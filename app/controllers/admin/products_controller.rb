@@ -1,4 +1,11 @@
+require 'dotenv/load'
+
 class Admin::ProductsController < ApplicationController
+
+  USERNAME = ENV['USERNAME']
+  PASSWORD = ENV['PASSWORD']
+
+  before_action :authenticate  
 
   def index
     @products = Product.order(id: :desc).all
@@ -25,6 +32,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == USERNAME && password == PASSWORD
+    end
+  end
 
   def product_params
     params.require(:product).permit(
