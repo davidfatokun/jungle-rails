@@ -4,8 +4,10 @@
   </header>
 
   <% if logged_in? && current_user == @user %>
-    <p>Full Name: <%= @user.first_name %> <%= @user.last_name %></p>
+    <p>First Name: <%= @user.first_name %></p>
+    <p>Last Name: <%= @user.last_name %></p>
     <p>Email: <%= @user.email %></p>
+    <p>Jungle Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
   <% else %>
     <p>You are unauthorized to view this users information</p>
   <% end %>

@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       render :show
     else
       flash[:alert] = "You are not authorized to view this page"
-      redirect_to root_path
+      redirect_to user_path(current_user)
     end  
   end
 
