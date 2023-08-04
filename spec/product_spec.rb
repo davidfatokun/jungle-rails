@@ -1,6 +1,5 @@
 require 'rails_helper' 
 require './app/models/product.rb'
-require './app/models/category.rb'
 
 RSpec.describe Product, type: :model do
   
