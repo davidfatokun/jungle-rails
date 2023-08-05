@@ -1,5 +1,3 @@
-// cypress/integration/product_details.spec.js
-
 describe('Product details', () => {
   beforeEach(() => {
     cy.visit('/')
